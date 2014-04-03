@@ -8,4 +8,13 @@ class IngredientsController < ApplicationController
       redirect_to("/recipes/#{@recipe.slug_name}/edit")
     end
   end
+
+  def edit
+    @recipe = Recipe.find_by(:slug_name => params[:slug_name])
+    @ingredient = Ingredient.find(params[:id])
+  end
+
+  def update
+  end
+
 end
