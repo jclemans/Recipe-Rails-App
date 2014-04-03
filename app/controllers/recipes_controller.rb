@@ -26,6 +26,7 @@ class RecipesController < ApplicationController
 
   def edit
     @recipe = Recipe.find_by(:slug_name => params[:slug_name])
+    @ingredients_sorted = @recipe.ingredients.sort_by { |i| i.id }
     render('recipes/edit.html.erb')
   end
 
