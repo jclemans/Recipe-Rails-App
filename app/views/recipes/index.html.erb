@@ -1,12 +1,20 @@
-<h1>Recipes Home Page</h1>
+<div class="container">
 
-<ul>
-  <% @recipes.each do |recipe| %>
-    <li><a href="/recipes/<%= recipe.slug_name %>"><%= recipe.name %> </a> | <a href="/recipes/<%= recipe.slug_name %>/edit">Edit</a> </li>
-  <% end %>
-</ul>
+  <h1>Recipes Home Page</h1>
+
+  <ul>
+    <% @recipes.each do |recipe| %>
+      <li>
+        <a href="/recipes/<%= recipe.slug_name %>"><%= recipe.name %> </a>
+        <a href="/recipes/<%= recipe.slug_name %>/edit">Edit</a>
+         <% if recipe.rating != nil %>
+           | Rating: <%= recipe.rating %>
+         <% end %>
+      </li>
+    <% end %>
+  </ul>
 
 
-<a href="/recipes/new"><button>Add a new Recipe</button></a>
+  <a href="/recipes/new"><button>Add a new Recipe</button></a>
 
-
+</div>

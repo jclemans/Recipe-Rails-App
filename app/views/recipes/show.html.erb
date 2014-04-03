@@ -1,4 +1,23 @@
+<div class="container">
 <h1><%= @recipe.name %></h1>
+
+<p>Rate this recipe:
+  <form action="/recipes/<%= @recipe.slug_name %>" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <input id="name" name="recipe[name]" type="hidden" value="<%= @recipe.name %>">
+    <select id="rating" name="recipe[rating]">
+      <option value="1">1 Star</option>
+      <option value="2">2 Star</option>
+      <option value="3">3 Star</option>
+      <option value="4">4 Star</option>
+      <option value="5">5 Star</option>
+    </select>
+  </br><button class="btn btn-primary">Submit rating!</button>
+  </form>
+</p>
+
+<p>Rating: <%= @recipe.rating %></p>
+
 
 
 <h2> Ingredients </h2>
@@ -6,3 +25,5 @@
   <li><%= ingredient.name %></li>
 <% end %>
 
+<a href="/recipes">Return to Recipes Home</a>
+</div>

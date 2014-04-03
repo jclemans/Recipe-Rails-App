@@ -1,34 +1,43 @@
-<h1>Edit your recipe</h1>
+<div class="container">
 
-<h3>Recipe Name</h3>
-<form action="/recipes/<%= @recipe.slug_name %>" method="post">
-  <input name="_method" type="hidden" value="patch">
-  <label for="recipe_name">Recipe</label>
-  <input id="recipe_name" name="recipe[name]" type="text" value="<%= @recipe.name %>">
-  <input id="slug_name" name="recipe[slug_name]" type="hidden" value"<%= @recipe.slug_name %>">
-  <button>Update Recipe</button>
-  <p><a href="/recipes/<%= @recipe.slug_name%>"
-  data-confirm="You sure?"
-  data-method="delete"
-  rel="nofollow"><button>Delete Recipe</button></a></p>
-</form>
+  <h1>Edit your recipe</h1>
 
-<h3>Ingredients</h3>
+  <h3>Recipe Name</h3>
+  <form action="/recipes/<%= @recipe.slug_name %>" method="post">
+    <input name="_method" type="hidden" value="patch">
+    <label for="recipe_name">Recipe</label>
+    <input id="recipe_name" name="recipe[name]" type="text" value="<%= @recipe.name %>">
+    <input id="slug_name" name="recipe[slug_name]" type="hidden" value="<%= @recipe.slug_name %>">
+    <button>Update Recipe</button>
+    <p><a href="/recipes/<%= @recipe.slug_name%>"
+    data-confirm="You sure?"
+    data-method="delete"
+    rel="nofollow"><button>Delete Recipe</button></a></p>
+  </form>
 
-<form action="/recipes/<%= @recipe.slug_name %>/ingredients" method="post">
-  <label for="ingredient_name">Ingredient</label>
-  <input id="ingredient_name" name="ingredient[name]" type="text">
-  <button>Add Ingredient</button>
-</form>
+  <h3>Ingredients</h3>
 
-<ul>
-  <% @ingredients_sorted.each do |ingredient| %>
-    <li>
-      <%= ingredient.name %><a href="/recipes/<%= @recipe.slug_name %>/ingredients/<%= ingredient.id %>"><button>Edit</button></a>
-      <a href="/recipes/<%= @recipe.slug_name%>/ingredients/<%= ingredient.id %>"
-        data-confirm="You sure?"
-        data-method="delete"
-        rel="nofollow"><button>Delete</button></a>
-    </li>
-  <% end %>
-</ul>
+  <form action="/recipes/<%= @recipe.slug_name %>/ingredients" method="post">
+    <label for="ingredient_name">Ingredient</label>
+    <input id="ingredient_name" name="ingredient[name]" type="text">
+    <button>Add Ingredient</button>
+  </form>
+
+  <ul>
+    <% @ingredients_sorted.each do |ingredient| %>
+      <li>
+        <%= ingredient.name %><a href="/recipes/<%= @recipe.slug_name %>/ingredients/<%= ingredient.id %>"><button>Edit</button></a>
+        <a href="/recipes/<%= @recipe.slug_name%>/ingredients/<%= ingredient.id %>"
+          data-confirm="You sure?"
+          data-method="delete"
+          rel="nofollow"><button>Delete</button></a>
+      </li>
+    <% end %>
+  </ul>
+
+
+</div>
+
+<div class="container">
+<div class="row"><a href="/recipes">| Return to Recipes Home |</a></div>
+</div>
