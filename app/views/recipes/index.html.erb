@@ -6,7 +6,6 @@
     <% @recipes.each do |recipe| %>
       <li>
         <a href="/recipes/<%= recipe.slug_name %>"><%= recipe.name %> </a>
-        <a href="/recipes/<%= recipe.slug_name %>/edit">Edit</a>
          <% if recipe.rating != nil %>
            | Rating: <%= recipe.rating %>
          <% end %>

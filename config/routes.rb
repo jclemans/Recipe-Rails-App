@@ -1,7 +1,7 @@
 Recipes::Application.routes.draw do
   match('recipes', {:via => :get, :to => 'recipes#index'})
   match('recipes/new', {:via => :get, :to => 'recipes#new'})
-  match('recipes', {:via => :post, :to => 'recipes#create'})
+  match('recipes/', {:via => :post, :to => 'recipes#create'})
   match('recipes/:slug_name', {:via => :get, :to => 'recipes#show'})
   match('recipes/:slug_name/edit', {:via => :get, :to => 'recipes#edit'})
   match('recipes/:slug_name', {:via => :delete, :to => 'recipes#destroy'})

@@ -13,7 +13,8 @@ class RecipesController < ApplicationController
     params[:recipe][:slug_name] = params[:recipe][:name].parameterize
     @recipe = Recipe.new(params[:recipe])
     if @recipe.save
-      redirect_to('/recipes/')
+      flash[:notice] = "Your recipe was added."
+      redirect_to("/recipes/#{@recipe.slug_name}")
     else
       render('recipes/index.html.erb')
     end

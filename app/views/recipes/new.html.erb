@@ -11,7 +11,7 @@
     </ul>
   <% end %>
 
-  <form action="/recipes" method="post">
+  <form action="/recipes/<%= @recipe.slug_name %>" method="post">
     <label for="recipe_name">Name</label>
     <input id="recipe_name" name="recipe[name]" type="text" value="<%= @recipe.name %>">
     <button>Add Recipe</button>
